@@ -1,0 +1,7 @@
+version: "3.1"
+
+# stories:
+# - story: show submenu
+#   steps:
+#   - intent: menu
+#   - action: action_show_sub_menu

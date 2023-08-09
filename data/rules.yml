@@ -1,0 +1,33 @@
+version: "3.1"
+
+rules:
+
+- rule: Say greet anytime the user says greet
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: Say menu anytime the user says selection
+  steps:
+  - intent: selection
+  - action: utter_show_options
+
+- rule: Say curse anytime the user says curse
+  steps:
+  - intent: curse
+  - action: utter_curse
+
+- rule: Say info anytime the user says curiosity
+  steps:
+  - intent: curiosity
+  - action: utter_info
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Say 'here are the menu' anytime the user challenges
+  steps:
+  - intent: menu
+  - action: utter_heremenu
