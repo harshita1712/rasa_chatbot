@@ -21,7 +21,7 @@ intents:
 
 responses:
   utter_greet:
-    - text: "Hello! I am here to help. Type menu to get started"
+    - text: "Type menu to get started"
 
   utter_cheer_up:
   - text: "Here is something to cheer you up:"
@@ -34,10 +34,10 @@ responses:
   - text: "Great, carry on!"
 
   utter_goodbye:
-  - text: "Bye"
+  - text: "adios"
 
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+  - text: "I am a bot, powered by Rasa. <a href='https://www.google.com/'>Google</a>" 
 
   utter_curse:
   - text: "whatever!"
@@ -47,6 +47,13 @@ responses:
 
   utter_heremenu:
   - text: "[\"Sure, here are your options\", \"Create a Jira\", \"Raise an Incident\", \"Raise a Change Request\"]"
+  # - text: “Click here to open the website” 
+  #   buttons:
+  #    - title: “Click me” 
+  #      payload: 'http://website.com'
+
+  utter_jira:
+  - text: "[\"Please choose from the options below\", \"Ticket Counter\", \"Delete Ticket\", \"Update Ticket\"]"
 
 actions:
   - utter_greet
@@ -54,6 +61,7 @@ actions:
   - utter_option_1
   - utter_option_2
   - action_show_sub_menu
+  - action_external_link
 
 session_config:
   session_expiration_time: 60

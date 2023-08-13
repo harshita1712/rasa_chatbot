@@ -9,6 +9,7 @@ async function sendOption(option) {
   const data = await response.json();
   appendMessage("user", option);
   const chatbotResponse = data[0].text;
+  console.log(chatbotResponse);
   try {
     const object = JSON.parse(chatbotResponse);
     console.log({ p: typeof object == "object" });
@@ -65,7 +66,10 @@ function appendMessage(sender, message) {
   messageElement.innerText = message;
   chatDisplay.appendChild(messageElement);
 }
-
+const WebLinks = {
+  "Ticket Counter":"https://www.google.com",
+  "Delete Ticket":"https://www.wikipedia.org"
+} 
 function makeButton(text) {
   const chatDisplay = document.getElementById("chat-messages");
   let btnContainer = document.getElementById("option-btn-container");
@@ -75,8 +79,12 @@ function makeButton(text) {
   btn.innerHTML = text;
   btn.className = "btn-option";
   btn.addEventListener("click", async () => {
-    btnContainer.innerHTML = "";
-    await sendOption(text);
+    if(WebLinks.hasOwnProperty(text)){
+    window.open(WebLinks[text],"_blank");
+    }else{ 
+      btnContainer.innerHTML = "";
+      await sendOption(text);
+    }
   });
   btnContainer.appendChild(btn);
   chatDisplay.appendChild(btnContainer);
